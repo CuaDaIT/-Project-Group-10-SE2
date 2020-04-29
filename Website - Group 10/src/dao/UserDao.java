@@ -109,6 +109,15 @@ public class UserDao {
 		            + connectToUser.getResponseCode());
 		}
 	}
+	public User getUserByID(int ID) {
+		HttpURLConnection connectToUser = DbConnect.getConnectionUser("/searchuserbyid?ID="+ID);
+		connectToUser.setRequestMethod("GET");
+		connectToUser.setRequestProperty("Accept", "application/json");
+		if (connectToUser.getResponseCode() != 200) {
+		    throw new RuntimeException("Failed : HTTP error code : "
+		            + connectToUser.getResponseCode());
+		}
+	}
 	private static String convertToString(InputStream in) {
 		// TODO Auto-generated method stub
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
