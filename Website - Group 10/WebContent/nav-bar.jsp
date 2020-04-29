@@ -10,13 +10,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <title>Navigation Bar</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/simple-sidebar.css" rel="stylesheet">
   
   <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -83,7 +80,7 @@ body {
         <a href="world.jsp" class="list-group-item list-group-item-action bg-light">World Statistic</a>
         <a href="vietnamtotal.jsp" class="list-group-item list-group-item-action bg-light">Vietnam Statistic</a>
         <a href="vietnamprovince.jsp" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Manage chart</a>
+        
         <a href="manage-account.jsp" class="list-group-item list-group-item-action bg-light">Manage account</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Log out</a>
       </div>

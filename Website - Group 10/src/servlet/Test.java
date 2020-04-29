@@ -41,7 +41,7 @@ public class Test extends HttpServlet {
 				List<Country> listCountries = cD.selectAllCountry();
 				response.getWriter().append(listCountries.get(1).getCountry());
 				request.setAttribute("listCountries", listCountries);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("data-table.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("admin-hompage.jsp");
 				dispatcher.forward(request, response);
 			} catch (IOException | SQLException e) {
 				// TODO Auto-generated catch block
