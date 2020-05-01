@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="-Project-Group-10-SE2">
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/API - Group 10/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Website - Group 10/src"/>
-        <property name="context-root" value="-Project-Group-10-SE2"/>
-        <property name="java-output-path" value="/-Project-Group-10-SE2/Website - Group 10/build/classes"/>
-    </wb-module>
-</project-modules>
