@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%-- Include the JSTL Core library in JSP --%>
-<jsp:include page="nav-bar-user.jsp"></jsp:include>
+<jsp:include page="ad-nav-bar.jsp"></jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Covid-19</title>
+<title>COVID-19 Analize</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
@@ -26,6 +26,7 @@
 						<th>Total Deaths</th>
 						<th>New Recovered Patient</th>
 						<th>Total Recovered Patient</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -40,7 +41,9 @@
 							<td><c:out value="${WorldGeneral.totalDeaths}" /></td>
 						    <td><c:out value="${WorldGeneral.newRecovered}" /></td>
 							<td><c:out value="${WorldGeneral.totalRecovered}" /></td>
-							
+							<td><a href="#">Edit</a>
+								&nbsp;&nbsp;&nbsp;&nbsp; <a
+								href="#">Delete</a></td>
 					</c:forEach>
 				</tbody>
 			</table>

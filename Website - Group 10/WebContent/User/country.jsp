@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%-- Include the JSTL Core library in JSP --%>
-<jsp:include page="nav-bar-user.jsp"></jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -11,38 +10,44 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+
 <body>
+<jsp:include page="nav-bar-user.jsp"></jsp:include>
 <div class="container">
 		    <br>
-			<h3 class="text-center">The World Statistic</h3>
+			<h3 class="text-center">The Countries Statistic</h3>
             <br>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>Date</th>
+						<th>Country</th>
 						<th>New Confirmed Patient</th>
 						<th>Total Confirmed Patient</th>
 						<th>New Deaths</th>
 						<th>Total Deaths</th>
 						<th>New Recovered Patient</th>
 						<th>Total Recovered Patient</th>
+						<th>Date</th>
+						<th>Country Code</th>
 					</tr>
 				</thead>
 				<tbody>
 				    <%-- c:forEach => basic iteration tag --%>
-					<c:forEach var="WorldGeneral" items="${listWorld}">
+					<c:forEach var="Country" items="${listCountries}">
 						<tr>
 						    <%-- c:out => for expressions --%>
-							<td><c:out value="${WorldGeneral.date}" /></td>
-							<td><c:out value="${WorldGeneral.newConfirmed}" /></td>
-							<td><c:out value="${WorldGeneral.totalConfirmed}" /></td>
-							<td><c:out value="${WorldGeneral.newDeaths}" /></td>
-							<td><c:out value="${WorldGeneral.totalDeaths}" /></td>
-						    <td><c:out value="${WorldGeneral.newRecovered}" /></td>
-							<td><c:out value="${WorldGeneral.totalRecovered}" /></td>
-							
+							<td><c:out value="${Country.country}" /></td>
+							<td><c:out value="${Country.newConfirmed}" /></td>
+							<td><c:out value="${Country.totalConfirmed}" /></td>
+							<td><c:out value="${Country.newDeaths}" /></td>
+							<td><c:out value="${Country.totalDeaths}" /></td>
+							<td><c:out value="${Country.newRecovered}" /></td>
+							<td><c:out value="${Country.totalRecovered}" /></td>
+							<td><c:out value="${Country.date}" /></td>
+							<td><c:out value="${Country.countryCode}" /></td>	
 					</c:forEach>
 				</tbody>
 			</table>
-		</div>
-		</html>
+		</div>	
+</body>
+</html>

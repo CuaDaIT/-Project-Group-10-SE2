@@ -14,35 +14,28 @@
 <body>
 <div class="container">
 		    <br>
-			<h3 class="text-center">The World Statistic</h3>
+			<h3 class="text-center">Each Day in VietNam Statistic</h3>
             <br>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>Date</th>
-						<th>New Confirmed Patient</th>
-						<th>Total Confirmed Patient</th>
-						<th>New Deaths</th>
-						<th>Total Deaths</th>
-						<th>New Recovered Patient</th>
-						<th>Total Recovered Patient</th>
+						<th>Cases</th>
+						<th>Recovered Patient</th>
+						<th>Deaths</th>
 					</tr>
 				</thead>
 				<tbody>
 				    <%-- c:forEach => basic iteration tag --%>
-					<c:forEach var="WorldGeneral" items="${listWorld}">
+					<c:forEach var="EachDay" items="${listEachDay}">
 						<tr>
 						    <%-- c:out => for expressions --%>
-							<td><c:out value="${WorldGeneral.date}" /></td>
-							<td><c:out value="${WorldGeneral.newConfirmed}" /></td>
-							<td><c:out value="${WorldGeneral.totalConfirmed}" /></td>
-							<td><c:out value="${WorldGeneral.newDeaths}" /></td>
-							<td><c:out value="${WorldGeneral.totalDeaths}" /></td>
-						    <td><c:out value="${WorldGeneral.newRecovered}" /></td>
-							<td><c:out value="${WorldGeneral.totalRecovered}" /></td>
-							
+							<td><c:out value="${EachDay.date}" /></td>
+							<td><c:out value="${EachDay.cases}" /></td>
+							<td><c:out value="${EachDay.recovered}" /></td>
+							<td><c:out value="${EachDay.deaths}" /></td>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		</html>
+		
