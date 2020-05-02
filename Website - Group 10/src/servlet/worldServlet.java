@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,8 +19,8 @@ import model.WorldGeneral;
  * requests from the user.
  */
 
-@WebServlet("/world")
-public class worldServlet {
+@WebServlet("/")
+public class worldServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private WorldGeneralDao worldGeneralDao;
 	
@@ -41,13 +42,13 @@ public class worldServlet {
 
 		try {
 			switch (action) {
-			case "/edit":
+			case "/world/edit":
 				showEditForm(request, response);
 				break;
-			case "/update":
+			case "/world/update":
 				updateWorldGeneralHistoricalRecord(request, response);
 				break;
-			case "/auto-update":
+			case "/world/auto-update":
 				updateWorldCurrentRecord(request, response);
 				break;
 			default:
@@ -63,13 +64,13 @@ public class worldServlet {
 			throws SQLException, IOException, ServletException {
 		List<WorldGeneral> worldGeneral = worldGeneralDao.getHistoricalWorldGeneral();
 		request.setAttribute("worldGeneral", worldGeneral);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ad-theworld.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-theworld.jsp");
 		dispatcher.forward(request, response);
 	}
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
 		WorldGeneral currentWorldRecod = worldGeneralDao.getCurrentWorldGeneral();
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ad-vietnam-editform.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-vietnam-editform.jsp");
 		request.setAttribute("currentWorldRecod", currentWorldRecod);
 		dispatcher.forward(request, response);
 
@@ -85,12 +86,12 @@ public class worldServlet {
 		int newRecovered = Integer.parseInt(request.getParameter("newRecovered"));
 		int totalRecovered = Integer.parseInt(request.getParameter("totalRecovered"));
 		worldGeneralDao.updateWorldGeneralManually(date, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered);
-		response.sendRedirect("list");
+		response.sendRedirect("world");
 	}
 	
 	private void updateWorldCurrentRecord(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
 		worldGeneralDao.getCurrentWorldGeneral();
-		response.sendRedirect("list");
+		response.sendRedirect("world");
 	}
 }

@@ -19,7 +19,7 @@ import model.Country;
  * requests from the user.
  */
 
-@WebServlet("/country")
+@WebServlet("/")
 public class countryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private dao.CountryDao countryDao;
@@ -46,31 +46,28 @@ public class countryServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 
-		String action = request.getServletPath();
-
 		try {
+			String action = request.getServletPath();
 			switch (action) {
-			case "/new":
+			case "/country/new":
 				showNewForm(request, response);
 				break;
-			case "/create":
-				createCountry(request,response);
-			case "/insert":
+			case "/country/insert":
 				insertCountry(request, response);
 				break;
-			case "/delete":
+			case "/country/delete":
 				deleteCountry(request, response);
 				break;
-			case "/edit":
+			case "/country/edit":
 				showEditForm(request, response);
 				break;
-			case "/update":
+			case "/country/update":
 				updateCountry(request, response);
 				break;
-			case "/auto-update":
+			case "/country/auto-update":
 				autoUpdateCountry(request, response);
 				break;
-			case "/vn":
+			case "/country/vn":
 				selectVn(request, response);
 				break;
 			default:
@@ -109,6 +106,7 @@ public class countryServlet extends HttpServlet {
 			throws SQLException, ServletException, IOException {
 		String cD = request.getParameter("countryCode");
 		Country existingCountry = countryDao.selectCustomCountry(cD);
+		System.out.println(existingCountry.getCountry());
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-country-editform.jsp");
 		request.setAttribute("country", existingCountry);
 		dispatcher.forward(request, response);
@@ -123,22 +121,6 @@ public class countryServlet extends HttpServlet {
 	}
 
 	
-	
-	private void createCountry(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		String country = request.getParameter("country");
-		double newConfirmed = Double.parseDouble(request.getParameter("newConfirmed"));
-		double totalConfirmed = Double.parseDouble(request.getParameter("totalConfirmed"));
-		double newDeaths = Double.parseDouble(request.getParameter("newDeaths"));		
-		double totalDeaths = Double.parseDouble(request.getParameter("totalDeaths"));
-		double newRecovered = Double.parseDouble(request.getParameter("newRecovered"));
-		double totalRecovered = Double.parseDouble(request.getParameter("totalRecovered"));
-		String date = request.getParameter("date");
-		String countryCode = request.getParameter("countryCode");
-		countryDao.createCountry(country, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered, date, countryCode);
-		response.sendRedirect("list");
-	}
-
-
 	private void insertCountry(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		String country = request.getParameter("country");
 		double newConfirmed = Double.parseDouble(request.getParameter("newConfirmed"));
@@ -150,7 +132,7 @@ public class countryServlet extends HttpServlet {
 		String date = request.getParameter("date");
 		String countryCode = request.getParameter("countryCode");
 		countryDao.insertACountry(country, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered, date, countryCode);;
-		response.sendRedirect("list");
+		response.sendRedirect("country");
 	}
 
 	private void updateCountry(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
@@ -164,13 +146,13 @@ public class countryServlet extends HttpServlet {
 		String date = request.getParameter("date");
 		String countryCode = request.getParameter("countryCode");
 		countryDao.updateSpecificCountry(country, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered, date, countryCode);
-		response.sendRedirect("list");
+		response.sendRedirect("country");
 	}
 
 	private void deleteCountry(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		String countryCode = request.getParameter("countryCode");
 		countryDao.deleteCountry(countryCode);
-		response.sendRedirect("list");
+		response.sendRedirect("country");
 
 	}
 }

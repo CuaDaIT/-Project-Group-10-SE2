@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,8 +19,8 @@ import model.VietNamProvinces;
  * requests from the user.
  */
 
-@WebServlet("/vietnamprovince")
-public class vietnamProvinceServlet {
+@WebServlet("/")
+public class vietnamProvinceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VietNamProvinceDao provinceDao;
 	
@@ -41,19 +42,19 @@ public class vietnamProvinceServlet {
 
 		try {
 			switch (action) {
-			case "/new":
+			case "/vietnamprovince/new":
 				showNewForm(request, response);
 				break;
-			case "/insert":
+			case "/vietnamprovince/insert":
 				insertVietNamProvinces(request, response);
 				break;
-			case "/delete":
+			case "/vietnamprovince/delete":
 				deleteVietNamProvince(request, response);
 				break;
-			case "/edit":
+			case "/vietnamprovince/edit":
 				showEditForm(request, response);
 				break;
-			case "/update":
+			case "/vietnamprovince/update":
 				updateVietNamProvince(request, response);
 				break;
 			default:
@@ -69,13 +70,13 @@ public class vietnamProvinceServlet {
 			throws SQLException, IOException, ServletException {
 		List<VietNamProvinces> listVietNamProvinces = provinceDao.selectAllProvinces();
 		request.setAttribute("listVietNamProvinces", listVietNamProvinces);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ad-list-province.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-list-province.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void showNewForm(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ad-province-newform.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-province-newform.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -83,7 +84,7 @@ public class vietnamProvinceServlet {
 			throws SQLException, ServletException, IOException {
 		String name = request.getParameter("name");
 		VietNamProvinces existingVietNamProvinces = provinceDao.selectVietNamProvince(name);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ad-province-editform.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-province-editform.jsp");
 		request.setAttribute("VietNamProvinces", existingVietNamProvinces);
 		dispatcher.forward(request, response);
 
@@ -97,7 +98,7 @@ public class vietnamProvinceServlet {
 		double recovered = Double.parseDouble(request.getParameter("recovered"));
 		double deaths = Double.parseDouble(request.getParameter("deaths"));
 		provinceDao.insertAProvince(name, confirmed, underTreatment, recovered, deaths);
-		response.sendRedirect("list");
+		response.sendRedirect("vietnamprovince");
 	}
 
 	private void updateVietNamProvince(HttpServletRequest request, HttpServletResponse response) 
@@ -108,14 +109,14 @@ public class vietnamProvinceServlet {
 		double recovered = Double.parseDouble(request.getParameter("recovered"));
 		double deaths = Double.parseDouble(request.getParameter("deaths"));
 		provinceDao.updateAProvince(name, confirmed, underTreatment, recovered, deaths);
-		response.sendRedirect("list");
+		response.sendRedirect("vietnamprovince");
 	}
 
 	private void deleteVietNamProvince(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
 		String name = request.getParameter("name");
 		provinceDao.deleteAprovince(name);
-		response.sendRedirect("list");
+		response.sendRedirect("vietnamprovince");
 
 	}
 }

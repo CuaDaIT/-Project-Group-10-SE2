@@ -31,12 +31,12 @@
 				</thead>
 				<tbody>
 				    <%-- c:forEach => basic iteration tag --%>
-					<c:forEach var="VietNamProvince" items="${listProvinces}">
+					<c:forEach var="VietNamProvince" items="${listVietNamProvinces}">
 						<tr>
 						    <%-- c:out => for expressions --%>
 							<td><c:out value="${VietNamProvince.name}" /></td>
 							<td><c:out value="${VietNamProvince.confirmed}" /></td>
-							<td><c:out value="${VietNamProvince.undertreatment}" /></td>
+							<td><c:out value="${VietNamProvince.underTreatment}" /></td>
 							<td><c:out value="${VietNamProvince.recovered}" /></td>
 							<td><c:out value="${VietNamProvince.deaths}" /></td>
 							<td><c:out value="${VietNamProvince.date}" /></td>

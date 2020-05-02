@@ -30,7 +30,7 @@
 				</thead>
 				<tbody>
 				    <%-- c:forEach => basic iteration tag --%>
-					<c:forEach var="EachDay" items="${listEachDay}">
+					<c:forEach var="EachDay" items="${listeachDay}">
 						<tr>
 						    <%-- c:out => for expressions --%>
 							<td><c:out value="${EachDay.date}" /></td>

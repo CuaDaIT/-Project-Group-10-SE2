@@ -34,7 +34,7 @@
 				</thead>
 				<tbody>
 				    <%-- c:forEach => basic iteration tag --%>
-					<c:forEach var="Country" items="${listCountries}">
+					<c:forEach var="Country" items="${listCountry}">
 						<tr>
 						    <%-- c:out => for expressions --%>
 							<td><c:out value="${Country.country}" /></td>
@@ -46,7 +46,7 @@
 							<td><c:out value="${Country.totalRecovered}" /></td>
 							<td><c:out value="${Country.date}" /></td>
 							<td><c:out value="${Country.countryCode}" /></td>	
-							<td><a href="#">Edit</a>
+							<td><a href="#" >Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="#">Delete</a></td>
 					</c:forEach>

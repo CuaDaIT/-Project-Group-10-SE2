@@ -31,7 +31,7 @@
 				</thead>
 				<tbody>
 				    <%-- c:forEach => basic iteration tag --%>
-					<c:forEach var="WorldGeneral" items="${listWorld}">
+					<c:forEach var="WorldGeneral" items="${worldGeneral}">
 						<tr>
 						    <%-- c:out => for expressions --%>
 							<td><c:out value="${WorldGeneral.date}" /></td>

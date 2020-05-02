@@ -14,11 +14,11 @@
 			<div class="card-body">
 				<form action="update" method="post">
 					<h3 class="text-center">UPDATE COUNTRIES STATISTIC</h3>
-					<input type="hidden" name="id" value="<c:out value='${country.id}' />" >
+					<input>
 
 					<fieldset class="form-group">
 						<label>Name</label> <input type="text"
-							value="<c:out value='${country.name}' />" class="form-control"
+							value="<c:out value='${country.country}' />" class="form-control"
 							name="name" required="required">
 					</fieldset>
 

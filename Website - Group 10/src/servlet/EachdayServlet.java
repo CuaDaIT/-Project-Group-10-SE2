@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,8 +19,8 @@ import model.EachDay;
  * requests from the user.
  */
 
-@WebServlet("/vietnam")
-public class EachdayServlet {
+@WebServlet("/")
+public class EachdayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private EachDayDao eachDayDao;
 	
@@ -41,13 +42,13 @@ public class EachdayServlet {
 
 		try {
 			switch (action) {
-			case "/insert":
+			case "/vietnam/insert":
 				insertDayStatistic(request, response);
 				break;
-			case "/edit":
+			case "/vietnam/edit":
 				showEditForm(request, response);;
 				break;
-			case "/update":
+			case "/vietnam/update":
 				updateDayStatistic(request, response);
 				break;
 			default:
@@ -63,14 +64,16 @@ public class EachdayServlet {
 			throws SQLException, IOException, ServletException {
 		List<EachDay> listeachDay = eachDayDao.getAllVietNamDays();
 		request.setAttribute("listeachDay", listeachDay);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ad-vietnam-total.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-vietnam-total.jsp");
 		dispatcher.forward(request, response);
 	}
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
-		String id = request.getParameter("id");
-		EachDay existingDay = eachDayDao.selectOneDay(id);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ad-vietnam-editform.jsp");
+		int year = Integer.parseInt(request.getParameter("year"));
+		int month = Integer.parseInt(request.getParameter("month"));
+		int date = Integer.parseInt(request.getParameter("date"));
+		EachDay existingDay = eachDayDao.selectOneDay(month,date,year);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-vietnam-editform.jsp");
 		request.setAttribute("eachDay", existingDay);
 		dispatcher.forward(request, response);
 
@@ -83,7 +86,7 @@ public class EachdayServlet {
 		double recovered = Double.parseDouble(request.getParameter("recovered"));
 		double deaths = Double.parseDouble(request.getParameter("deaths"));
 		eachDayDao.insertAday(date, cases, recovered, deaths);
-		response.sendRedirect("list");
+		response.sendRedirect("vietnam");
 	}
 
 	private void updateDayStatistic(HttpServletRequest request, HttpServletResponse response) 
@@ -93,6 +96,6 @@ public class EachdayServlet {
 		double recovered = Double.parseDouble(request.getParameter("recovered"));
 		double deaths = Double.parseDouble(request.getParameter("deaths"));
 		eachDayDao.updateASpecificDay(date, cases, recovered, deaths);
-		response.sendRedirect("list");
+		response.sendRedirect("vietnam");
 	}
 }

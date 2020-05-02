@@ -19,7 +19,7 @@ import model.User;
  * requests from the user.
  */
 
-@WebServlet("/manageaccount")
+@WebServlet("/")
 public class accountServle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private dao.UserDao userDao;
@@ -42,19 +42,19 @@ public class accountServle extends HttpServlet {
 
 		try {
 			switch (action) {
-			case "/new":
+			case "/manageaccount/new":
 				showNewForm(request, response);
 				break;
-			case "/insert":
+			case "/manageaccount/insert":
 				insertUser(request, response);
 				break;
-			case "/delete":
+			case "/manageaccount/delete":
 				deleteUser(request, response);
 				break;
-			case "/edit":
+			case "/manageaccount/edit":
 				showEditForm(request, response);
 				break;
-			case "/update":
+			case "/manageaccount/update":
 				updateUser(request, response);
 				break;
 			default:
@@ -98,7 +98,7 @@ public class accountServle extends HttpServlet {
 		int age = Integer.parseInt(request.getParameter("age"));
 		String dob = request.getParameter("dob");
 		userDao.createUser(username, email, password, age, dob);
-		response.sendRedirect("list");
+		response.sendRedirect("manageaccount");
 	}
 
 	private void updateUser(HttpServletRequest request, HttpServletResponse response) 
@@ -110,14 +110,14 @@ public class accountServle extends HttpServlet {
 		int age = Integer.parseInt(request.getParameter("age"));
 		String dob = request.getParameter("dob");
 		userDao.updateUser(id,username, email, password, age, dob);
-		response.sendRedirect("list");
+		response.sendRedirect("manageaccount");
 	}
 
 	private void deleteUser(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		userDao.deleteUser(id);
-		response.sendRedirect("list");
+		response.sendRedirect("manageaccount");
 
 	}
 }
