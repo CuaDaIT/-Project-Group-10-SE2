@@ -15,5 +15,17 @@
 	<classpathentry kind="lib" path="D:/FIT2018/SE2 resource/lib/mysql-connector-java-8.0.19.jar"/>
 	<classpathentry kind="lib" path="D:/FIT2018/SE2 resource/lib/servlet-api-2.5.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="E:/downgame/lib/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="E:/downgame/lib/json-20190722.jar"/>
+	<classpathentry kind="lib" path="E:/downgame/lib/jsoup-1.13.1.jar"/>
+	<classpathentry kind="lib" path="E:/downgame/lib/jsp-api-2.2.jar"/>
+	<classpathentry kind="lib" path="E:/downgame/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="E:/downgame/lib/mysql-connector-java-8.0.19.jar"/>
+	<classpathentry kind="lib" path="E:/downgame/lib/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/servlet-api.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="https://javaee.github.io/javaee-spec/javadocs/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
