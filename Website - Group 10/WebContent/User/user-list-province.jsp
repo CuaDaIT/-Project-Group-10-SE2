@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%-- Include the JSTL Core library in JSP --%>
-<jsp:include page="nav-bar-user.jsp"></jsp:include>
+<jsp:include page="user-nav-bar.jsp"></jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>

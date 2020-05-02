@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%-- Include the JSTL Core library in JSP --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:include page="nav-bar-user.jsp"></jsp:include>
+<jsp:include page="user-nav-bar.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
