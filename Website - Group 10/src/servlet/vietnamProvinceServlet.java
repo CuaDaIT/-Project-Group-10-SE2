@@ -81,8 +81,8 @@ public class vietnamProvinceServlet {
 
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
-		String id = request.getParameter("id");
-		VietNamProvinces existingVietNamProvinces = provinceDao.selectVietNamProvince(id);
+		String name = request.getParameter("name");
+		VietNamProvinces existingVietNamProvinces = provinceDao.selectVietNamProvince(name);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("ad-province-editform.jsp");
 		request.setAttribute("VietNamProvinces", existingVietNamProvinces);
 		dispatcher.forward(request, response);
