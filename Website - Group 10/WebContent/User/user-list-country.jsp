@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<jsp:include page="nav-bar-user.jsp"></jsp:include>
+<jsp:include page="user-nav-bar.jsp"></jsp:include>
 <div class="container">
 		    <br>
 			<h3 class="text-center">The Countries Statistic</h3>
