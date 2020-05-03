@@ -13,21 +13,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import dao.CountryDao;
-import model.Country;
+import dao.EachDayDao;
+import model.EachDay;
 
 /**
- * Servlet implementation class InsertAllCountry
+ * Servlet implementation class UpdateVnDays
  */
-@WebServlet("/country/automaticinsertallcountry")
-public class InsertAllCountry extends HttpServlet {
+@WebServlet("/vietnamdays/updatevndays")
+public class AutomaticUpdateVnDays extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Gson gson = new Gson();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertAllCountry() {
+    public AutomaticUpdateVnDays() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,36 +37,32 @@ public class InsertAllCountry extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		EachDayDao e = new EachDayDao();
+		ArrayList<EachDay> elst;
 		try {
-			
-			CountryDao c = new CountryDao();
-			ArrayList<Country> cLst = c.selectAllCountry();
-				String country = this.gson .toJson(cLst);
-				PrintWriter out = response.getWriter();
-		        response.setContentType("application/json");
-		        response.setCharacterEncoding("UTF-8");
-		        out.print(country);
-		        out.flush(); 
-			
-		} catch (IOException | SQLException e) {
+			elst = e.getAllDays();
+
+			String days = this.gson .toJson(elst);
+			PrintWriter out = response.getWriter();
+	        response.setContentType("application/json");
+	        response.setCharacterEncoding("UTF-8");
+	        out.print(days);
+	        out.flush(); 
+		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
-		}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		EachDayDao ecD = new EachDayDao();
 		try {
-			CountryDao cD = new CountryDao();
-			cD.insertAllCountry();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
+			ecD.updateDataInEachDayTable();
+		} catch (IOException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -18,7 +18,7 @@ import model.User;
 /**
  * Servlet implementation class SearchUserByID
  */
-@WebServlet("/user/searchuserbyid")
+@WebServlet("/searchuserbyid")
 public class SearchUserByID extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Gson gson = new Gson();

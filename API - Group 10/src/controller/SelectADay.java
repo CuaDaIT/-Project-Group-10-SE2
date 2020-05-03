@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,21 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import dao.CountryDao;
-import model.Country;
+import dao.EachDayDao;
+import model.EachDay;
 
 /**
- * Servlet implementation class AutomaticUpdateCountries
+ * Servlet implementation class SelectADay
  */
-@WebServlet("/country/automaticupdatecountries")
-public class AutomaticUpdateCountries extends HttpServlet {
+@WebServlet("/vietnamdays/selectaday")
+public class SelectADay extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Gson gson = new Gson();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AutomaticUpdateCountries() {
+    public SelectADay() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,40 +36,24 @@ public class AutomaticUpdateCountries extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		String year = request.getParameter("year");
+		String day = request.getParameter("day");
+		String month = request.getParameter("month");
+		String date = String.join("/", year,month,day);
+		date = date.concat("T00:00:00Z");
+		EachDayDao edD = new EachDayDao();
 		try {
-			CountryDao cD = new CountryDao();
-			ArrayList<Country> cLst = cD.selectAllCountry();
-			String country = this.gson .toJson(cLst);
+			EachDay eD = edD.selectOneDay(date);
+			String days = this.gson  .toJson(eD);
 			PrintWriter out = response.getWriter();
 	        response.setContentType("application/json");
 	        response.setCharacterEncoding("UTF-8");
-	        out.print(country);
+	        out.print(days);
 	        out.flush(); 
-		}  catch (IOException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		CountryDao cD;
-		try {
-			cD = new CountryDao();
-			cD.updateAllCountry();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		doGet(request, response);
 	}
 
 }
