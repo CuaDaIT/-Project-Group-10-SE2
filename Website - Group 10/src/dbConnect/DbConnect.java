@@ -5,7 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class DbConnect {
-	private final static int host = 8888;
+	private final static int host = 8080;
 	private static String user = "http://localhost:"+host+ "/Assignment_Group4/user";
 	private static String worldgeneral = "http://localhost:"+host+ "/Assignment_Group4/world";;
 	private static String eachday = "http://localhost:"+host+ "/Assignment_Group4/vietnamdays";;

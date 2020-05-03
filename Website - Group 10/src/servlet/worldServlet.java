@@ -19,7 +19,7 @@ import model.WorldGeneral;
  * requests from the user.
  */
 
-@WebServlet("/")
+@WebServlet("/worldstatistic/*")
 public class worldServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private WorldGeneralDao worldGeneralDao;
@@ -38,25 +38,43 @@ public class worldServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		
-		String action = request.getServletPath();
+		String action = request.getPathInfo();
 
-		try {
-			switch (action) {
-			case "/world/edit":
-				showEditForm(request, response);
-				break;
-			case "/world/update":
-				updateWorldGeneralHistoricalRecord(request, response);
-				break;
-			case "/world/auto-update":
-				updateWorldCurrentRecord(request, response);
-				break;
-			default:
+		if(action == null || action.isEmpty()) {
+			try {
 				listEachDay(request, response);
-				break;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException ex) {
-			throw new ServletException(ex);
+		}else {
+			try {
+				switch (action) {
+				case "/edit":
+					showEditForm(request, response);
+					break;
+				case "/update":
+					updateWorldGeneralHistoricalRecord(request, response);
+					break;
+				case "/insert":
+					insertWorldGeneralHistoricalRecord(request, response);
+					break;
+				case "/auto-update":
+					updateWorldCurrentRecord(request, response);
+					break;
+				default:
+					listEachDay(request, response);
+					break;
+				}
+			} catch (SQLException ex) {
+				throw new ServletException(ex);
+			}
 		}
 	}
 
@@ -70,10 +88,9 @@ public class worldServlet extends HttpServlet {
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
 		WorldGeneral currentWorldRecod = worldGeneralDao.getCurrentWorldGeneral();
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-vietnam-editform.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-world-editform.jsp");
 		request.setAttribute("currentWorldRecod", currentWorldRecod);
 		dispatcher.forward(request, response);
-
 	}
 
 	private void updateWorldGeneralHistoricalRecord(HttpServletRequest request, HttpServletResponse response) 
@@ -86,6 +103,18 @@ public class worldServlet extends HttpServlet {
 		int newRecovered = Integer.parseInt(request.getParameter("newRecovered"));
 		int totalRecovered = Integer.parseInt(request.getParameter("totalRecovered"));
 		worldGeneralDao.updateWorldGeneralManually(date, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered);
+		response.sendRedirect("world");
+	}
+	
+	private void insertWorldGeneralHistoricalRecord(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException {
+		int newConfirmed = Integer.parseInt(request.getParameter("newConfirmed"));
+		int totalConfirmed = Integer.parseInt(request.getParameter("totalConfirmed"));
+		int newDeaths = Integer.parseInt(request.getParameter("newDeaths"));		
+		int totalDeaths = Integer.parseInt(request.getParameter("totalDeaths"));
+		int newRecovered = Integer.parseInt(request.getParameter("newRecovered"));
+		int totalRecovered = Integer.parseInt(request.getParameter("totalRecovered"));
+		worldGeneralDao.insertWorldGeneralManually(newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered);
 		response.sendRedirect("world");
 	}
 	

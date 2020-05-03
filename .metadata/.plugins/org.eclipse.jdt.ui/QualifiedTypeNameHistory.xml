@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 <fullyQualifiedTypeName name="dao.EachDayDao"/>
 <fullyQualifiedTypeName name="dao.VietNamProvinceDao"/>
 <fullyQualifiedTypeName name="dao.WorldGeneralDao"/>
 <fullyQualifiedTypeName name="model.EachDay"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="model.Country"/>
 <fullyQualifiedTypeName name="dao.CountryDao"/>
+<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 </qualifiedTypeNameHistroy>

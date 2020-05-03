@@ -77,7 +77,7 @@ body {
       <div class="sidebar-heading">COVID-19 Analize</div>
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Homepage</a>
-        <a href="<%=request.getContextPath()%>/world" class="list-group-item list-group-item-action bg-light">World Statistic</a>
+        <a href="<%=request.getContextPath()%>/worldstatistic" class="list-group-item list-group-item-action bg-light">World Statistic</a>
         <a href="<%=request.getContextPath()%>/vietnam" class="list-group-item list-group-item-action bg-light">Vietnam Statistic</a>
         <a href="<%=request.getContextPath()%>/vietnamprovince" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces</a>
         

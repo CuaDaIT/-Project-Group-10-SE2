@@ -19,7 +19,7 @@ import model.Country;
  * requests from the user.
  */
 
-@WebServlet("/")
+@WebServlet("/country")
 public class countryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private dao.CountryDao countryDao;
@@ -49,7 +49,7 @@ public class countryServlet extends HttpServlet {
 		try {
 			String action = request.getServletPath();
 			switch (action) {
-			case "/country/new":
+			case "/new":
 				showNewForm(request, response);
 				break;
 			case "/country/insert":

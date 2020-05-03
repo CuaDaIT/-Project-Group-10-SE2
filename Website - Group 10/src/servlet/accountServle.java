@@ -19,7 +19,7 @@ import model.User;
  * requests from the user.
  */
 
-@WebServlet("/")
+@WebServlet("/manageaccount/*")
 public class accountServle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private dao.UserDao userDao;
@@ -38,31 +38,46 @@ public class accountServle extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		
-		String action = request.getServletPath();
+		String action = request.getPathInfo();
 
-		try {
-			switch (action) {
-			case "/manageaccount/new":
-				showNewForm(request, response);
-				break;
-			case "/manageaccount/insert":
-				insertUser(request, response);
-				break;
-			case "/manageaccount/delete":
-				deleteUser(request, response);
-				break;
-			case "/manageaccount/edit":
-				showEditForm(request, response);
-				break;
-			case "/manageaccount/update":
-				updateUser(request, response);
-				break;
-			default:
+		if(action == null || action.isEmpty()) {
+			try {
 				listUser(request, response);
-				break;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException ex) {
-			throw new ServletException(ex);
+		}else {
+			try {
+				switch (action) {
+				case "/new":
+					showNewForm(request, response);
+					break;
+				case "/insert":
+					insertUser(request, response);
+					break;
+				case "/delete":
+					deleteUser(request, response);
+					break;
+				case "/edit":
+					showEditForm(request, response);
+					break;
+				case "/update":
+					updateUser(request, response);
+					break;
+				default:
+					listUser(request, response);
+					break;
+				}
+			} catch (SQLException ex) {
+				throw new ServletException(ex);
+			}
 		}
 	}
 

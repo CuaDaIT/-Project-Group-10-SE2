@@ -19,7 +19,7 @@ import model.EachDay;
  * requests from the user.
  */
 
-@WebServlet("/")
+@WebServlet("/vietnam/*")
 public class EachdayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private EachDayDao eachDayDao;
@@ -38,25 +38,40 @@ public class EachdayServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		
-		String action = request.getServletPath();
+		String action = request.getPathInfo();
 
-		try {
-			switch (action) {
-			case "/vietnam/insert":
-				insertDayStatistic(request, response);
-				break;
-			case "/vietnam/edit":
-				showEditForm(request, response);;
-				break;
-			case "/vietnam/update":
-				updateDayStatistic(request, response);
-				break;
-			default:
+		if(action == null || action.isEmpty()) {
+			try {
 				listEachDay(request, response);
-				break;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException ex) {
-			throw new ServletException(ex);
+		}else {
+			try {
+				switch (action) {
+				case "/insert":
+					insertDayStatistic(request, response);
+					break;
+				case "/edit":
+					showEditForm(request, response);;
+					break;
+				case "/update":
+					updateDayStatistic(request, response);
+					break;
+				default:
+					listEachDay(request, response);
+					break;
+				}
+			} catch (SQLException ex) {
+				throw new ServletException(ex);
+			}
 		}
 	}
 

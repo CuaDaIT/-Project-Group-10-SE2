@@ -19,7 +19,7 @@ import model.VietNamProvinces;
  * requests from the user.
  */
 
-@WebServlet("/")
+@WebServlet("/vietnamprovince/*")
 public class vietnamProvinceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VietNamProvinceDao provinceDao;
@@ -38,23 +38,37 @@ public class vietnamProvinceServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		
-		String action = request.getServletPath();
+		String action = request.getPathInfo();
 
+		if(action == null || action.isEmpty()) {
+			try {
+				listVietNamProvinces(request, response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
 		try {
 			switch (action) {
-			case "/vietnamprovince/new":
+			case "/new":
 				showNewForm(request, response);
 				break;
-			case "/vietnamprovince/insert":
+			case "/insert":
 				insertVietNamProvinces(request, response);
 				break;
-			case "/vietnamprovince/delete":
+			case "/delete":
 				deleteVietNamProvince(request, response);
 				break;
-			case "/vietnamprovince/edit":
+			case "/edit":
 				showEditForm(request, response);
 				break;
-			case "/vietnamprovince/update":
+			case "/update":
 				updateVietNamProvince(request, response);
 				break;
 			default:
@@ -63,7 +77,7 @@ public class vietnamProvinceServlet extends HttpServlet {
 			}
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
-		}
+		}}
 	}
 
 	private void listVietNamProvinces(HttpServletRequest request, HttpServletResponse response)

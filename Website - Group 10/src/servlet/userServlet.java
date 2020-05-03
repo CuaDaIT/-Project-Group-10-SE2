@@ -21,7 +21,7 @@ import dao.WorldGeneralDao;
 import model.WorldGeneral;
 
 
-@WebServlet("/")
+@WebServlet("/user/*")
 public class userServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -64,32 +64,36 @@ public class userServlet extends HttpServlet{
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		
-		String action = request.getServletPath();
-
-		switch (action) {
-		case "/province":
+		String action = request.getPathInfo();
+		
+		if(action == null || action.isEmpty()) {
 			listCountry(request, response);
-			break;
-		case "/eachday":
-			try {
-				listEachDay(request, response);
-			} catch (ServletException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		}else {
+			switch (action) {
+			case "/province":
+				listCountry(request, response);
+				break;
+			case "/eachday":
+				try {
+					listEachDay(request, response);
+				} catch (ServletException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case "/world":
+				worldGeneral(request, response);
+				break;
+			default:
+				listVietNamProvinces(request, response);
+				break;
 			}
-			break;
-		case "/world":
-			worldGeneral(request, response);
-			break;
-		default:
-			listVietNamProvinces(request, response);
-			break;
 		}
 	}
 
