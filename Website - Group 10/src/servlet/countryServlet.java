@@ -19,7 +19,7 @@ import model.Country;
  * requests from the user.
  */
 
-@WebServlet("/country")
+@WebServlet("/country/*")
 public class countryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private dao.CountryDao countryDao;
@@ -47,32 +47,48 @@ public class countryServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 
 		try {
-			String action = request.getServletPath();
-			switch (action) {
-			case "/new":
-				showNewForm(request, response);
-				break;
-			case "/country/insert":
-				insertCountry(request, response);
-				break;
-			case "/country/delete":
-				deleteCountry(request, response);
-				break;
-			case "/country/edit":
-				showEditForm(request, response);
-				break;
-			case "/country/update":
-				updateCountry(request, response);
-				break;
-			case "/country/auto-update":
-				autoUpdateCountry(request, response);
-				break;
-			case "/country/vn":
-				selectVn(request, response);
-				break;
-			default:
-				listCountry(request, response);
-				break;
+			String action = request.getPathInfo();
+
+			if(action == null || action.isEmpty()) {
+				try {
+					listCountry(request, response);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ServletException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else {
+				switch (action) {
+				case "/new":
+					showNewForm(request, response);
+					break;
+				case "/insert":
+					insertCountry(request, response);
+					break;
+				case "/delete":
+					deleteCountry(request, response);
+					break;
+				case "/edit":
+					showEditForm(request, response);
+					break;
+				case "/update":
+					updateCountry(request, response);
+					break;
+				case "/auto-update":
+					autoUpdateCountry(request, response);
+					break;
+				case "/vn":
+					selectVn(request, response);
+					break;
+				default:
+					listCountry(request, response);
+					break;
+				}
 			}
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
@@ -106,7 +122,6 @@ public class countryServlet extends HttpServlet {
 			throws SQLException, ServletException, IOException {
 		String cD = request.getParameter("countryCode");
 		Country existingCountry = countryDao.selectCustomCountry(cD);
-		System.out.println(existingCountry.getCountry());
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-country-editform.jsp");
 		request.setAttribute("country", existingCountry);
 		dispatcher.forward(request, response);

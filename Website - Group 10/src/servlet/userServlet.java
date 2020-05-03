@@ -71,7 +71,7 @@ public class userServlet extends HttpServlet{
 		}else {
 			switch (action) {
 			case "/province":
-				listCountry(request, response);
+				listVietNamProvinces(request, response);
 				break;
 			case "/eachday":
 				try {
@@ -91,7 +91,7 @@ public class userServlet extends HttpServlet{
 				worldGeneral(request, response);
 				break;
 			default:
-				listVietNamProvinces(request, response);
+				listCountry(request, response);
 				break;
 			}
 		}

@@ -16,6 +16,10 @@ import model.Country;
 
 @WebServlet("/admin")
 public class adminServlet extends HttpServlet{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private CountryDao countryDao;
 	public void init() {
 		try {
