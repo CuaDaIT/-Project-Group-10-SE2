@@ -31,6 +31,20 @@ public class EachDayDao {
 		}
 		return e;
 	}
+	public EachDay selectOneDay(String date) throws SQLException {
+		EachDay eD = new EachDay();
+		Connection conn = DbConnect.getConnection();
+		String selectADay = "SELECT * from eachday where date=" + "\"" + date + "\"";
+		PreparedStatement preparedStatement = conn.prepareStatement(selectADay);
+		ResultSet rs = preparedStatement.executeQuery();
+		while(rs.next()) {
+			eD.setCases(rs.getDouble("cases"));
+			eD.setDate(rs.getString("date"));
+			eD.setDeaths(rs.getDouble("deaths"));
+			eD.setRecovered(rs.getDouble("recovered"));
+		}
+		return eD;
+	}
 
 	public void updateASpecificDay(EachDay day) throws SQLException {
 		Connection conn = DbConnect.getConnection();
