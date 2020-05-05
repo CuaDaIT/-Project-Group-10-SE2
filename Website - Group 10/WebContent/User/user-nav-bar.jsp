@@ -67,10 +67,21 @@ body {
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Home page</a>
         <a href="<%=request.getContextPath()%>/world" class="list-group-item list-group-item-action bg-light">The World Statistic</a>
-        <a href="<%=request.getContextPath()%>/country" class="list-group-item list-group-item-action bg-light">The Countries Statistic</a>
+        <a href="<%=request.getContextPath()%>/thecountry" class="list-group-item list-group-item-action bg-light">The Countries Statistic</a>
         <a href="<%=request.getContextPath()%>/province" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces</a>
         <a href="<%=request.getContextPath()%>/eachday" class="list-group-item list-group-item-action bg-light">Each Day in VietNam</a>
       </div>
     </div>
+    
+ <div id="page-content-wrapper">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="<%=request.getContextPath()%>/login">Admin Login</a>
+            </li>
+           </ul>
+    </div>
+  </nav>
 </body>
 </html>
