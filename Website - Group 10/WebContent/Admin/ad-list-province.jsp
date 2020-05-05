@@ -40,9 +40,10 @@
 							<td><c:out value="${VietNamProvince.recovered}" /></td>
 							<td><c:out value="${VietNamProvince.deaths}" /></td>
 							<td><c:out value="${VietNamProvince.date}" /></td>
-							<td><a href="#">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="#">Delete</a></td>
+							<td><a href="/vietnamprovince/edit?VietNamProvince=<c:out value='${VietNamProvince.name}' />">Edit</a>
+								&nbsp;&nbsp;&nbsp;&nbsp; 
+								<a href="/vietnamprovince/delete?VietNamProvince=<c:out value='${VietNamProvince.name}' />">Delete</a>
+							</td>
 					</c:forEach>
 				</tbody>
 			</table>

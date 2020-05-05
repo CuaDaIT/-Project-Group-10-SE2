@@ -18,9 +18,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class DbConnect {
-	private static String DB_URL = "jdbc:mysql://localhost:3306/se2?useSSL=false";
+	private static String DB_URL = "jdbc:mysql://localhost:3306/coronavirus?useSSL=false";
     private static String USER_NAME = "root";
-    private static String PASSWORD = "17061999";
+    private static String PASSWORD = "Tuntun99!";
     private static String WORLD="https://api.covid19api.com/summary";
     private static String COUNTRIES = "https://api.covid19api.com/summary";
     private static String days = "https://api.covid19api.com/dayone/country/vietnam";

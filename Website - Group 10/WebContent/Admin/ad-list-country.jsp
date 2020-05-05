@@ -46,9 +46,10 @@
 							<td><c:out value="${Country.totalRecovered}" /></td>
 							<td><c:out value="${Country.date}" /></td>
 							<td><c:out value="${Country.countryCode}" /></td>	
-							<td><a href="#" >Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="#">Delete</a></td>
+							<td><a href="/Group4_Assignment_SE2_Corona_site/country/edit?countryCode=<c:out value='${Country.countryCode}' />">Edit</a>
+								&nbsp;&nbsp;&nbsp;&nbsp; 
+								<a href="/Group4_Assignment_SE2_Corona_site/country/delete?country=<c:out value='${Country.country}' />">Delete</a>
+							</td>
 					</c:forEach>
 				</tbody>
 			</table>

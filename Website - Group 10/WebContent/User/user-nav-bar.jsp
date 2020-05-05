@@ -65,11 +65,11 @@ body {
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">COVID-19 Analysis</div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Home page</a>
-        <a href="<%=request.getContextPath()%>/world" class="list-group-item list-group-item-action bg-light">The World Statistic</a>
-        <a href="<%=request.getContextPath()%>/thecountry" class="list-group-item list-group-item-action bg-light">The Countries Statistic</a>
-        <a href="<%=request.getContextPath()%>/province" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces</a>
-        <a href="<%=request.getContextPath()%>/eachday" class="list-group-item list-group-item-action bg-light">Each Day in VietNam</a>
+        <a href="<%=request.getContextPath()%>/user" class="list-group-item list-group-item-action bg-light">Home page</a>
+        <a href="<%=request.getContextPath()%>/user/world" class="list-group-item list-group-item-action bg-light">The World Statistic</a>
+        <a href="<%=request.getContextPath()%>/user" class="list-group-item list-group-item-action bg-light">The Countries Statistic</a>
+        <a href="<%=request.getContextPath()%>/user/province" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces</a>
+        <a href="<%=request.getContextPath()%>/user/eachday" class="list-group-item list-group-item-action bg-light">Each Day in VietNam</a>
       </div>
     </div>
     
