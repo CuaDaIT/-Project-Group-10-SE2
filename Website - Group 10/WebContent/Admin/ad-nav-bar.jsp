@@ -81,7 +81,7 @@ body {
         <a href="<%=request.getContextPath()%>/vietnam" class="list-group-item list-group-item-action bg-light">Vietnam Statistic</a>
         <a href="<%=request.getContextPath()%>/vietnamprovince" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces</a>
         
-        <a href="<%=request.getContextPath()%>/manageaccount" class="list-group-item list-group-item-action bg-light">Manage account</a>
+       
         <a href="#" class="list-group-item list-group-item-action bg-light">Log out</a>
       </div>
     </div>

@@ -33,13 +33,15 @@
 					<c:forEach var="EachDay" items="${listeachDay}">
 						<tr>
 						    <%-- c:out => for expressions --%>
+						    <td><c:out value="${EachDay.ID}" /></td>
 							<td><c:out value="${EachDay.date}" /></td>
 							<td><c:out value="${EachDay.cases}" /></td>
 							<td><c:out value="${EachDay.recovered}" /></td>
 							<td><c:out value="${EachDay.deaths}" /></td>
-							<td><a href="#">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="#">Delete</a></td>
+							<td><a href="/Group4_Assignment_SE2_Corona_site/worldstatistic/edit?id=<c:out value='${EachDay.ID}' />">Edit</a>
+								&nbsp;&nbsp;&nbsp;&nbsp; 
+								<a href="/Group4_Assignment_SE2_Corona_site/worldstatistic/delete?id=<c:out value='${EachDay.ID}' />">Delete</a>
+							</td>	
 					</c:forEach>
 				</tbody>
 			</table>
