@@ -17,43 +17,43 @@
 					<fieldset class="form-group">
 						<label>Name</label> <input type="text"
 							value='${country.country}' class="form-control"
-							name="name" required="required">
+							name="country" required="required">
 					</fieldset>
 
 					<fieldset class="form-group">
-						<label>New Confirmed</label> <input type="text"
+						<label>New Confirmed</label> <input type="number"
 							value='${country.newConfirmed}' class="form-control"
 							name="newConfirmed">
 					</fieldset>
 
 					<fieldset class="form-group">
-						<label>Total Confirmed</label> <input type="text"
+						<label>Total Confirmed</label> <input type="number"
 							value='${country.totalConfirmed}' class="form-control"
 							name="totalConfirmed">
 					</fieldset>
 					
 					<fieldset class="form-group">
-						<label>New Deaths</label> <input type="text"
+						<label>New Deaths</label> <input type="number"
 							value='${country.newDeaths}' class="form-control"
 							name="newDeaths">
 					</fieldset>
 					
 					<fieldset class="form-group">
-						<label>Total Deaths</label> <input type="text"
+						<label>Total Deaths</label> <input type="number"
 							value='${country.totalDeaths}' class="form-control"
 							name="totalDeaths">
 					</fieldset>
 					
 					
 					<fieldset class="form-group">
-						<label>New Recovered</label> <input type="text"
+						<label>New Recovered</label> <input type="number"
 							value='${country.newRecovered}' class="form-control"
 							name="newRecovered">
 					</fieldset>
 					
 										
 					<fieldset class="form-group">
-						<label>Total Recovered</label> <input type="text"
+						<label>Total Recovered</label> <input type="number"
 							value='${country.totalRecovered}' class="form-control"
 							name="totalRecovered">
 					</fieldset>

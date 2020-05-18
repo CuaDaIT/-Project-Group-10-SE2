@@ -17,6 +17,7 @@
 		    <br>
 			<h3 class="text-center">VietNam Provinces Statistic</h3>
             <br>
+            <a href="/Group4_Assignment_SE2_Corona_site/vietnamprovince/new">Add New Province</a>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -40,9 +41,9 @@
 							<td><c:out value="${VietNamProvince.recovered}" /></td>
 							<td><c:out value="${VietNamProvince.deaths}" /></td>
 							<td><c:out value="${VietNamProvince.date}" /></td>
-							<td><a href="/Group4_Assignment_SE2_Corona_site//vietnamprovince/edit?VietNamProvince=<c:out value='${VietNamProvince.name}' />">Edit</a>
+							<td><a href="/Group4_Assignment_SE2_Corona_site/vietnamprovince/edit?VietNamProvince=<c:out value='${VietNamProvince.name}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; 
-								<a href="/Group4_Assignment_SE2_Corona_site//vietnamprovince/delete?VietNamProvince=<c:out value='${VietNamProvince.name}' />">Delete</a>
+								<a href="/Group4_Assignment_SE2_Corona_site/vietnamprovince/delete?VietNamProvince=<c:out value='${VietNamProvince.name}' />">Delete</a>
 							</td>
 					</c:forEach>
 				</tbody>

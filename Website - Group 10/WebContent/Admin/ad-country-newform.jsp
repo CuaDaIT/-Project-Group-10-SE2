@@ -20,32 +20,32 @@
 					</fieldset>
 
 					<fieldset class="form-group">
-						<label>New Confirmed</label> <input type="number" class="form-control"
-							name="newComfirmed">
+						<label>New Confirmed</label> <input type="text" class="form-control"
+							name="newConfirmed">
 					</fieldset>
 
 					<fieldset class="form-group">
-						<label>Total Confirmed</label> <input type="number" class="form-control"
-							name="totalComfirmed">
+						<label>Total Confirmed</label> <input type="text" class="form-control"
+							name="totalConfirmed">
 					</fieldset>
 					
 					<fieldset class="form-group">
-						<label>New Deaths</label> <input type="number" class="form-control"
+						<label>New Deaths</label> <input type="text" class="form-control"
 							name="newDeaths">
 					</fieldset>
 					
 					<fieldset class="form-group">
-						<label>Total Deaths</label> <input type="number" class="form-control"
+						<label>Total Deaths</label> <input type="text" class="form-control"
 							name="totalDeaths">
 					</fieldset>
 					
 					<fieldset class="form-group">
-						<label>New Recovered</label> <input type="number" class="form-control"
+						<label>New Recovered</label> <input type="text" class="form-control"
 							name="newRecovered">
 					</fieldset>
 					
 					<fieldset class="form-group">
-						<label>Total Recovered</label> <input type="number" class="form-control"
+						<label>Total Recovered</label> <input type="text" class="form-control"
 							name="totalRecovered">
 					</fieldset>
 					

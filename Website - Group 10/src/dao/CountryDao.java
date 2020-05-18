@@ -130,7 +130,7 @@ public class CountryDao {
 				+"&newrecovered="+newRecovered
 				+"&totalrecovered="+totalRecovered
 				+"&date="+date
-				+"countrycode="+countryCode);
+				+"&countrycode="+countryCode);
 		connectToCountry.setRequestMethod("POST");
 		connectToCountry.setRequestProperty("Accept", "application/json");
 		if (connectToCountry.getResponseCode() != 200) {
@@ -150,7 +150,7 @@ public class CountryDao {
 				+"&newrecovered="+newRecovered
 				+"&totalrecovered="+totalRecovered
 				+"&date="+date
-				+"countrycode="+countryCode);
+				+"&countrycode="+countryCode);
 		insertACountry.setRequestMethod("PUT");
 		insertACountry.setRequestProperty("Accept", "application/json");
 		if (insertACountry.getResponseCode() != 200) {
