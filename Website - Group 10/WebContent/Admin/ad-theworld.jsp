@@ -41,9 +41,8 @@
 							<td><c:out value="${WorldGeneral.totalDeaths}" /></td>
 						    <td><c:out value="${WorldGeneral.newRecovered}" /></td>
 							<td><c:out value="${WorldGeneral.totalRecovered}" /></td>
-							<td><a href="/Group4_Assignment_SE2_Corona_site/worldstatistic/edit?id=<c:out value='${WorldGeneral.id}' />">Edit</a>
+							<td><a href="/Group10_Assignment_SE2_Corona_site/worldstatistic/edit?id=<c:out value='${WorldGeneral.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; 
-								<a href="/Group4_Assignment_SE2_Corona_site/worldstatistic/delete?id=<c:out value='${WorldGeneral.id}' />">Delete</a>
 							</td>
 					</c:forEach>
 				</tbody>

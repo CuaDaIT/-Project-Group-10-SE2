@@ -39,7 +39,7 @@
 							<td><c:out value="${EachDay.cases}" /></td>
 							<td><c:out value="${EachDay.recovered}" /></td>
 							<td><c:out value="${EachDay.deaths}" /></td>
-							<td><a href="/Group4_Assignment_SE2_Corona_site/vietnam/edit?ID=<c:out value='${EachDay.ID}' />">Edit</a>
+							<td><a href="/Group10_Assignment_SE2_Corona_site/vietnam/edit?ID=<c:out value='${EachDay.ID}' />">Edit</a>
 							</td>	
 					</c:forEach>
 				</tbody>

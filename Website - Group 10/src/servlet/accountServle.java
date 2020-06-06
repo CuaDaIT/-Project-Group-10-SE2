@@ -123,7 +123,7 @@ public class accountServle extends HttpServlet {
 		int age = Integer.parseInt(request.getParameter("age"));
 		String dob = request.getParameter("dob");
 		userDao.createUser(username, email, password, age, dob);
-		response.sendRedirect("manageaccount");
+		response.sendRedirect("");
 	}
 
 	private void updateUser(HttpServletRequest request, HttpServletResponse response) 
@@ -141,14 +141,14 @@ public class accountServle extends HttpServlet {
 		int age = Integer.parseInt(request.getParameter("age"));
 		String dob = request.getParameter("dob");
 		userDao.updateUser(id,username, email, password, age, dob);
-		response.sendRedirect("manageaccount");
+		response.sendRedirect("");
 	}
 
 	private void deleteUser(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		userDao.deleteUser(id);
-		response.sendRedirect("manageaccount");
+		response.sendRedirect("");
 
 	}
 	

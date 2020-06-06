@@ -177,8 +177,8 @@ public class VietNamProvinceDao {
 				+"confirmed=?"
 				+ ",undertreatment=?"
 				+ ",recovered=?"
-				+ "deaths=?"
-				+ ",date=,"
+				+ ",deaths=?"
+				+ ",date=?"
 				+ " where ID=?";
 		PreparedStatement preparedStatement1 = conn.prepareStatement(updateValue);
 		 preparedStatement1.setDouble(1, vnD.getConfirmed());
@@ -189,11 +189,11 @@ public class VietNamProvinceDao {
 		 preparedStatement1.setInt(6, vnD.getiD());
 		 preparedStatement1.execute();
 	}
-	public void deleteAprovince(String name) throws SQLException {
+	public void deleteAprovince(int ID ) throws SQLException {
 		Connection conn = DbConnect.getConnection();
-		 String deletion = "DELETE FROM provinces WHERE name=" +  "\"" + name + "\"";
+		 String deletion = "DELETE FROM provinces WHERE ID=" + ID;
 		 PreparedStatement preparedStatement = conn.prepareStatement(deletion);
-		preparedStatement.executeUpdate();
+		preparedStatement.execute();
 	}
 
 }

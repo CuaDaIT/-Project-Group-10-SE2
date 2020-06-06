@@ -96,7 +96,7 @@ public class vietnamProvinceServlet extends HttpServlet {
 
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
-		int iD = Integer.parseInt(request.getParameter("ID"));
+		int iD = Integer.parseInt(request.getParameter("iD"));
 		VietNamProvinces existingVietNamProvinces = provinceDao.selectVietNamProvince(iD);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-province-editform.jsp");
 		request.setAttribute("VietNamProvinces", existingVietNamProvinces);
@@ -108,29 +108,30 @@ public class vietnamProvinceServlet extends HttpServlet {
 			throws SQLException, IOException {
 		String name = request.getParameter("name");
 		double confirmed = Double.parseDouble(request.getParameter("confirmed"));
-		double underTreatment = Double.parseDouble(request.getParameter("underTreatment"));
+		double underTreatment = Double.parseDouble(request.getParameter("undertreatment"));
 		double recovered = Double.parseDouble(request.getParameter("recovered"));
 		double deaths = Double.parseDouble(request.getParameter("deaths"));
 		provinceDao.insertAProvince(name, confirmed, underTreatment, recovered, deaths);
-		response.sendRedirect("vietnamprovince");
+		response.sendRedirect("");
 	}
 
 	private void updateVietNamProvince(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
 		String name = request.getParameter("name");
 		double confirmed = Double.parseDouble(request.getParameter("confirmed"));
-		double underTreatment = Double.parseDouble(request.getParameter("underTreatment"));
+		double underTreatment = Double.parseDouble(request.getParameter("undertreatment"));
 		double recovered = Double.parseDouble(request.getParameter("recovered"));
 		double deaths = Double.parseDouble(request.getParameter("deaths"));
 		provinceDao.updateAProvince(name, confirmed, underTreatment, recovered, deaths);
-		response.sendRedirect("vietnamprovince");
+		response.sendRedirect("");
 	}
 
 	private void deleteVietNamProvince(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
-		String name = request.getParameter("name");
-		provinceDao.deleteAprovince(name);
-		response.sendRedirect("vietnamprovince");
+		int id = Integer.parseInt(request.getParameter("iD"));
+		System.out.println(id);
+		provinceDao.deleteAprovince(id);
+		response.sendRedirect("");
 
 	}
 }

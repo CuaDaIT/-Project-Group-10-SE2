@@ -13,37 +13,43 @@
 		<div class="card">
 			<div class="card-body">
 				<form action="update" method="post">
-					<h3 class="text-center">UPDATE VIETNAM PROVINCE STATISTIC</h3>
-					<input type="hidden" name="id" value="<c:out value='${province.id}' />" >
+					<h3 class="text-center">UPDATE VIETNAM VietNamProvinces STATISTIC</h3>
+					<input type="hidden" name="id" value='${VietNamProvinces.iD}'  >
 
 					<fieldset class="form-group">
 						<label>Name</label> <input type="text"
-							value="<c:out value='${province.name}' />" class="form-control"
+							value='${VietNamProvinces.name}'  class="form-control"
 							name="name" required="required">
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>Undertreatment</label> <input type="text"
-							value="<c:out value='${province.undertreatment}' />" class="form-control"
-							name="address">
+							value='${VietNamProvinces.confirmed}'  class="form-control"
+							name="confirmed">
+					</fieldset>
+
+					<fieldset class="form-group">
+						<label>Undertreatment</label> <input type="text"
+							value='${VietNamProvinces.underTreatment}'  class="form-control"
+							name="undertreatment">
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>Recovered</label> <input type="text"
-							value="<c:out value='${province.recovered}' />" class="form-control"
-							name="mobile">
+							value='${VietNamProvinces.recovered}'  class="form-control"
+							name="recovered">
 					</fieldset>
 					
 					<fieldset class="form-group">
 						<label>Deaths</label> <input type="text"
-							value="<c:out value='${province.deaths}' />" class="form-control"
-							name="mobile">
+							value='${VietNamProvinces.deaths}'  class="form-control"
+							name="deaths">
 					</fieldset>
 					
 					<fieldset class="form-group">
 						<label>Date</label> <input type="text"
-							value="<c:out value='${province.date}' />" class="form-control"
-							name="mobile">
+							value='${VietNamProvinces.date}'  class="form-control"
+							name=date>
 					</fieldset>
 					<div class="col text-center">
 						<button type="submit" class="btn btn-success">UPDATE</button>

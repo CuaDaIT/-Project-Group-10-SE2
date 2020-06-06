@@ -20,22 +20,22 @@
 					</fieldset>
 
 					<fieldset class="form-group">
-						<label>Comfirmed</label> <input type="number" class="form-control"
+						<label>Comfirmed</label> <input type="text" class="form-control"
 							name="confirmed">
 					</fieldset>
 
 					<fieldset class="form-group">
-						<label>Undertreatment</label> <input type="number" class="form-control"
+						<label>Undertreatment</label> <input type="text" class="form-control"
 							name="undertreatment">
 					</fieldset>
 					
 					<fieldset class="form-group">
-						<label>Recovered</label> <input type="number" class="form-control"
+						<label>Recovered</label> <input type="text" class="form-control"
 							name="recovered">
 					</fieldset>
 					
 					<fieldset class="form-group">
-						<label>Deaths</label> <input type="number" class="form-control"
+						<label>Deaths</label> <input type="text" class="form-control"
 							name="deaths">
 					</fieldset>
 					

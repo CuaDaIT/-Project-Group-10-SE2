@@ -60,16 +60,18 @@ public class EachDayDao {
 		double cases = dayChosen.getDouble("cases");
 		double recovered = dayChosen.getDouble("recovered");
 		double deaths = dayChosen.getDouble("deaths");
-		EachDay eD = new EachDay(ID,dateG, cases, recovered, deaths);
+		EachDay eD = new EachDay(iD,dateG, cases, recovered, deaths);
 		return eD;
 		
 	}
 	public void updateASpecificDay(String date, double cases, double recovered, double deaths) throws SQLException, IOException {
+		System.out.println(cases);
 		HttpURLConnection connnectToEachDay = DbConnect.getConnectionEachday("?"
-				+ "date="+date
+				+"date="+date
 				+"&cases="+cases
-				+"&recovered"+recovered
+				+"&recovered="+recovered
 				+"&deaths="+deaths);
+		System.out.println(connnectToEachDay.toString());
 		connnectToEachDay.setRequestMethod("POST");
 		connnectToEachDay.setRequestProperty("Accept", "application/json");
 		if (connnectToEachDay.getResponseCode() != 200) {
@@ -79,7 +81,7 @@ public class EachDayDao {
 	}
 	public void insertAday(String date, double cases, double recovered, double deaths) throws SQLException, IOException {
 		HttpURLConnection connnectToEachDay = DbConnect.getConnectionEachday("?"
-				+"&cases="+cases
+				+"cases="+cases
 				+"&recovered"+recovered
 				+"&deaths="+deaths);
 		connnectToEachDay.setRequestMethod("PUT");

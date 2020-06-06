@@ -67,7 +67,7 @@
 					<fieldset class="form-group">
 						<label>Country Code</label> <input type="text"
 							value='${country.countryCode}' class="form-control"
-							name="countryCode">
+							name="countryCode" readonly>
 					</fieldset>
 					<div class="col text-center">
 						<button type="submit" class="btn btn-success">UPDATE</button>

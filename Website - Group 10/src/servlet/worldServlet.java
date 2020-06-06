@@ -103,7 +103,7 @@ public class worldServlet extends HttpServlet {
 		int newRecovered = Integer.parseInt(request.getParameter("newRecovered"));
 		int totalRecovered = Integer.parseInt(request.getParameter("totalRecovered"));
 		worldGeneralDao.updateWorldGeneralManually(date, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered);
-		response.sendRedirect("world");
+		response.sendRedirect("");
 	}
 	
 	private void insertWorldGeneralHistoricalRecord(HttpServletRequest request, HttpServletResponse response) 
@@ -115,12 +115,12 @@ public class worldServlet extends HttpServlet {
 		int newRecovered = Integer.parseInt(request.getParameter("newRecovered"));
 		int totalRecovered = Integer.parseInt(request.getParameter("totalRecovered"));
 		worldGeneralDao.insertWorldGeneralManually(newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered);
-		response.sendRedirect("world");
+		response.sendRedirect("");
 	}
 	
 	private void updateWorldCurrentRecord(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
 		worldGeneralDao.getCurrentWorldGeneral();
-		response.sendRedirect("world");
+		response.sendRedirect("");
 	}
 }

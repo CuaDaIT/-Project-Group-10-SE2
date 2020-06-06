@@ -77,10 +77,12 @@ public class EachdayServlet extends HttpServlet {
 
 	private void listEachDay(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		eachDayDao.updateDataInEachDayTable();
 		List<EachDay> listeachDay = eachDayDao.getAllVietNamDays();
 		request.setAttribute("listeachDay", listeachDay);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-vietnam-total.jsp");
 		dispatcher.forward(request, response);
+		return;
 	}
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
@@ -89,17 +91,17 @@ public class EachdayServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-vietnam-editform.jsp");
 		request.setAttribute("eachDay", existingDay);
 		dispatcher.forward(request, response);
-
 	}
 
 	private void insertDayStatistic(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
+		System.out.println(request.getParameter("cases"));
 		String date = request.getParameter("date");
 		double cases = Double.parseDouble(request.getParameter("cases"));
 		double recovered = Double.parseDouble(request.getParameter("recovered"));
 		double deaths = Double.parseDouble(request.getParameter("deaths"));
 		eachDayDao.insertAday(date, cases, recovered, deaths);
-		response.sendRedirect("vietnam");
+		response.sendRedirect("");
 	}
 
 	private void updateDayStatistic(HttpServletRequest request, HttpServletResponse response) 
@@ -109,6 +111,6 @@ public class EachdayServlet extends HttpServlet {
 		double recovered = Double.parseDouble(request.getParameter("recovered"));
 		double deaths = Double.parseDouble(request.getParameter("deaths"));
 		eachDayDao.updateASpecificDay(date, cases, recovered, deaths);
-		response.sendRedirect("vietnam");
+		response.sendRedirect("");
 	}
 }

@@ -106,10 +106,10 @@ public class Province extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String name = request.getParameter("name");
+		int id = Integer.parseInt(request.getParameter("ID"));
 		VietNamProvinceDao vnD = new VietNamProvinceDao();
 		try {
-			vnD.deleteAprovince(name);
+			vnD.deleteAprovince(id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

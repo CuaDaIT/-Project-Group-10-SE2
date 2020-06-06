@@ -99,10 +99,15 @@ public class VietNamProvinceDao {
 		            + connectToPtovince.getResponseCode());
 		}
 	}
-	public void deleteAprovince(String name) throws SQLException, IOException {
-		HttpURLConnection connectToPtovince = DbConnect.getConnectionProvince("?name="+name);
+	public void deleteAprovince(int ID) throws SQLException, IOException {
+		HttpURLConnection connectToPtovince = DbConnect.getConnectionProvince("?ID="+ID);
+		System.out.println(connectToPtovince.toString());
 		connectToPtovince.setRequestMethod("DELETE");
 		connectToPtovince.setRequestProperty("Accept", "application/json");
+		if (connectToPtovince.getResponseCode() != 200) {
+		    throw new RuntimeException("Failed : HTTP error code : "
+		            + connectToPtovince.getResponseCode());
+		}
 	}
 	private static String convertToString(InputStream in) {
 	// TODO Auto-generated method stub

@@ -17,7 +17,7 @@
 		    <br>
 			<h3 class="text-center">The Countries Statistic</h3>
             <br>
-            <a href="/Group4_Assignment_SE2_Corona_site/country/new">Add New Country</a>
+            <a href="/Group10_Assignment_SE2_Corona_site/country/new">Add New Country</a>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -47,9 +47,9 @@
 							<td><c:out value="${Country.totalRecovered}" /></td>
 							<td><c:out value="${Country.date}" /></td>
 							<td><c:out value="${Country.countryCode}" /></td>	
-							<td><a href="/Group4_Assignment_SE2_Corona_site/country/edit?countryCode=<c:out value='${Country.countryCode}' />">Edit</a>
+							<td><a href="/Group10_Assignment_SE2_Corona_site/country/edit?countryCode=<c:out value='${Country.countryCode}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; 
-								<a href="/Group4_Assignment_SE2_Corona_site/country/delete?countryCode=<c:out value='${Country.countryCode}' />">Delete</a>
+								<a href="/Group10_Assignment_SE2_Corona_site/country/delete?countryCode=<c:out value='${Country.countryCode}' />">Delete</a>
 							</td>
 					</c:forEach>
 				</tbody>

@@ -19,25 +19,25 @@
 					<fieldset class="form-group">
 						<label>Date</label> <input type="text"
 							 value='${eachDay.date}'  class="form-control"
-							name="name" required="required">
+							name="date" required="required" readonly>
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>Cases</label> <input type="text"
 							 value='${eachDay.cases}'  class="form-control"
-							name="address">
+							name="cases">
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>Recovered</label> <input type="text"
 							 value='${eachDay.recovered}'  class="form-control"
-							name="mobile">
+							name="recovered">
 					</fieldset>
 					
 					<fieldset class="form-group">
 						<label>Deaths</label> <input type="text"
 							 value='${eachDay.deaths}'  class="form-control"
-							name="mobile">
+							name="deaths">
 					</fieldset>
 					
 					

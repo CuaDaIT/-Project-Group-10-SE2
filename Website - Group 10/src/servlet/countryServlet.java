@@ -147,7 +147,7 @@ public class countryServlet extends HttpServlet {
 		String date = request.getParameter("date");
 		String countryCode = request.getParameter("countryCode");
 		countryDao.insertACountry(country, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered, date, countryCode);;
-		response.sendRedirect("country");
+		response.sendRedirect("");
 	}
 
 	private void updateCountry(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
@@ -161,13 +161,13 @@ public class countryServlet extends HttpServlet {
 		String date = request.getParameter("date");
 		String countryCode = request.getParameter("countryCode");
 		countryDao.updateSpecificCountry(country, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered, date, countryCode);
-		response.sendRedirect("country");
+		response.sendRedirect("");
 	}
 
 	private void deleteCountry(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		String countryCode = request.getParameter("countryCode");
 		countryDao.deleteCountry(countryCode);
-		response.sendRedirect("country");
+		response.sendRedirect("");
 
 	}
 }

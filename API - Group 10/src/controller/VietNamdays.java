@@ -23,7 +23,7 @@ import model.EachDay;
 public class VietNamdays extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Gson gson = new Gson();
-       
+     
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -60,17 +60,17 @@ public class VietNamdays extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String date = request.getParameter("date");
+		System.out.println(date);
 		double cases = Double.parseDouble(request.getParameter("cases"));
 		double recovered = Double.parseDouble(request.getParameter("recovered"));
 		double deaths = Double.parseDouble(request.getParameter("deaths"));
-		
 		EachDay e = new EachDay(date, cases, recovered, deaths);
 		EachDayDao eaD = new EachDayDao();
 		try {
 			eaD.updateASpecificDay(e);
-		} catch (SQLException e1) {
+		} catch (SQLException eS1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			eS1.printStackTrace();
 		}
 	}
 
