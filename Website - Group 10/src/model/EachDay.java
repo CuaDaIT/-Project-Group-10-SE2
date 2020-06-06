@@ -1,13 +1,21 @@
 package model;
 
 public class EachDay {
-	
+	private int ID;
 	private String date;
 	private double cases;
 	private double recovered;
 	private double deaths;
 	
+	public EachDay(int ID,String date, double cases, double recovered, double deaths) {
+		this.ID = ID;
+		this.date = date;
+		this.cases = cases;
+		this.recovered = recovered;
+		this.deaths = deaths;
+	}
 	public EachDay(String date, double cases, double recovered, double deaths) {
+	
 		this.date = date;
 		this.cases = cases;
 		this.recovered = recovered;
@@ -47,5 +55,8 @@ public class EachDay {
 
 	public void setDeaths(double deaths) {
 		this.deaths = deaths;
+	}
+	public int getID() {
+		return ID;
 	}
 }

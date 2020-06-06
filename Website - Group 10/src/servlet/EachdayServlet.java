@@ -84,10 +84,8 @@ public class EachdayServlet extends HttpServlet {
 	}
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
-		int year = Integer.parseInt(request.getParameter("year"));
-		int month = Integer.parseInt(request.getParameter("month"));
-		int date = Integer.parseInt(request.getParameter("date"));
-		EachDay existingDay = eachDayDao.selectOneDay(month,date,year);
+		int ID = Integer.parseInt(request.getParameter("ID"));
+		EachDay existingDay = eachDayDao.selectOneDay(ID);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin/ad-vietnam-editform.jsp");
 		request.setAttribute("eachDay", existingDay);
 		dispatcher.forward(request, response);

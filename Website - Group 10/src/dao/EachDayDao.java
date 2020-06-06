@@ -32,21 +32,19 @@ public class EachDayDao {
 		JSONArray days = new JSONArray(output);
 		for(int i = 0; i < days.length();i++) {
 			JSONObject day = days.getJSONObject(i);
+			int ID = day.getInt("ID");
 			String date = day.getString("date");
 			double cases = day.getDouble("cases");
 			double recovered = day.getDouble("recovered");
 			double deaths = day.getDouble("deaths");
-			EachDay eD = new EachDay(date, cases, recovered, deaths);
+			EachDay eD = new EachDay(ID,date, cases, recovered, deaths);
 			alldaysVn.add(eD);
 		}
 			
 		return alldaysVn;
 	}
-	public EachDay selectOneDay(int month,int date,int year) throws IOException {
-		HttpURLConnection connnectToEachDay = DbConnect.getConnectionEachday("/selectaday?"
-				+ "month="+month
-				+"&date="+date
-				+"&year="+year);
+	public EachDay selectOneDay(int ID) throws IOException {
+		HttpURLConnection connnectToEachDay = DbConnect.getConnectionEachday("/selectaday?ID="+ID);
 		connnectToEachDay.setRequestMethod("GET");
 		connnectToEachDay.setRequestProperty("Accept", "application/json");
 		InputStream in = new BufferedInputStream(
@@ -57,11 +55,12 @@ public class EachDayDao {
 		}
 		String output = convertToString(in);
 		JSONObject dayChosen = new JSONObject(output);
+		int iD = dayChosen.getInt("ID");
 		String dateG = dayChosen.getString("date");
 		double cases = dayChosen.getDouble("cases");
 		double recovered = dayChosen.getDouble("recovered");
 		double deaths = dayChosen.getDouble("deaths");
-		EachDay eD = new EachDay(dateG, cases, recovered, deaths);
+		EachDay eD = new EachDay(ID,dateG, cases, recovered, deaths);
 		return eD;
 		
 	}

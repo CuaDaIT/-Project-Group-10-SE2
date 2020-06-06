@@ -36,14 +36,10 @@ public class SelectADay extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String year = request.getParameter("year");
-		String day = request.getParameter("day");
-		String month = request.getParameter("month");
-		String date = String.join("/", year,month,day);
-		date = date.concat("T00:00:00Z");
+		int ID = Integer.parseInt(request.getParameter("ID"));
 		EachDayDao edD = new EachDayDao();
 		try {
-			EachDay eD = edD.selectOneDay(date);
+			EachDay eD = edD.selectOneDay(ID);
 			String days = this.gson  .toJson(eD);
 			PrintWriter out = response.getWriter();
 	        response.setContentType("application/json");

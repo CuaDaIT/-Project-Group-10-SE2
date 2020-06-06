@@ -14,49 +14,49 @@
 			<div class="card-body">
 				<form action="update" method="post">
 					<h3 class="text-center">UPDATE THE WOLRD STATISTIC</h3>
-					<input type="hidden" name="id" value="<c:out value='${worldgeneral.id}' />" >
+					<input type="hidden" name="id"  value='${currentWorldRecod.id}'  >
 
 					<fieldset class="form-group">
 						<label>Date</label> <input type="text"
-							value="<c:out value='${worldgeneral.date}' />" class="form-control"
+							 value='${currentWorldRecod.date}'  class="form-control"
 							name="date" required="required">
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>New Confirmed</label> <input type="text"
-							value="<c:out value='${worldgeneral.newConfirmed}' />" class="form-control"
+							value='${currentWorldRecod.newConfirmed}' class="form-control"
 							name="newConfirmed">
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>Total Confirmed</label> <input type="text"
-							value="<c:out value='${worldgeneral.totalConfirmed}' />" class="form-control"
+							 value='${currentWorldRecod.totalConfirmed}'  class="form-control"
 							name="totalConfirmed">
 					</fieldset>
 					
 					<fieldset class="form-group">
 						<label>New Deaths</label> <input type="text"
-							value="<c:out value='${worldgeneral.newDeaths}' />" class="form-control"
+							 value='${currentWorldRecod.newDeaths}'  class="form-control"
 							name="newDeaths">
 					</fieldset>
 					
 					<fieldset class="form-group">
 						<label>Total Deaths</label> <input type="text"
-							value="<c:out value='${worldgeneral.totalDeaths}' />" class="form-control"
+							 value='${currentWorldRecod.totalDeaths}'  class="form-control"
 							name="totalDeaths">
 					</fieldset>
 					
 					
 					<fieldset class="form-group">
 						<label>New Recovered</label> <input type="text"
-							value="<c:out value='${worldgeneral.newRecovered}' />" class="form-control"
+							 value='${currentWorldRecod.newRecovered}'  class="form-control"
 							name="newRecovered">
 					</fieldset>
 					
 										
 					<fieldset class="form-group">
 						<label>Total Recovered</label> <input type="text"
-							value="<c:out value='${worldgeneral.totalRecovered}' />" class="form-control"
+							 value='${currentWorldRecod.totalRecovered}'  class="form-control"
 							name="totalRecovered">
 					</fieldset>
 					

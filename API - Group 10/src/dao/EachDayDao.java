@@ -22,22 +22,24 @@ public class EachDayDao {
 		PreparedStatement preparedStatement = conn.prepareStatement(getAll);
 		ResultSet rs = preparedStatement.executeQuery();
 		while(rs.next()) {
+			int iD = rs.getInt("ID");
 			String date = rs.getString("date");
 			double cases = rs.getDouble("cases");
 			double recovered = rs.getDouble("recovered");
 			double deaths = rs.getDouble("deaths");
-			e.add(new EachDay(date,cases,recovered,deaths));
+			e.add(new EachDay(iD,date,cases,recovered,deaths));
 			
 		}
 		return e;
 	}
-	public EachDay selectOneDay(String date) throws SQLException {
+	public EachDay selectOneDay(int ID) throws SQLException {
 		EachDay eD = new EachDay();
 		Connection conn = DbConnect.getConnection();
-		String selectADay = "SELECT * from eachday where date=" + "\"" + date + "\"";
+		String selectADay = "SELECT * from eachday where ID=" + ID ;
 		PreparedStatement preparedStatement = conn.prepareStatement(selectADay);
 		ResultSet rs = preparedStatement.executeQuery();
 		while(rs.next()) {
+			eD.setID(rs.getInt("ID"));
 			eD.setCases(rs.getDouble("cases"));
 			eD.setDate(rs.getString("date"));
 			eD.setDeaths(rs.getDouble("deaths"));

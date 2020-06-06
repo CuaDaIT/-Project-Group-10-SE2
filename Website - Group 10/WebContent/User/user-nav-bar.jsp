@@ -65,9 +65,8 @@ body {
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">COVID-19 Analysis</div>
       <div class="list-group list-group-flush">
-        <a href="<%=request.getContextPath()%>/user" class="list-group-item list-group-item-action bg-light">Home page</a>
-        <a href="<%=request.getContextPath()%>/user/world" class="list-group-item list-group-item-action bg-light">The World Statistic</a>
         <a href="<%=request.getContextPath()%>/user" class="list-group-item list-group-item-action bg-light">The Countries Statistic</a>
+        <a href="<%=request.getContextPath()%>/user/world" class="list-group-item list-group-item-action bg-light">The World Statistic</a>
         <a href="<%=request.getContextPath()%>/user/province" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces</a>
         <a href="<%=request.getContextPath()%>/user/eachday" class="list-group-item list-group-item-action bg-light">Each Day in VietNam</a>
       </div>
@@ -78,7 +77,7 @@ body {
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="<%=request.getContextPath()%>/login">Admin Login</a>
+              <a class="nav-link" href="<%=request.getContextPath()%>/login/form">Admin Login</a>
             </li>
            </ul>
     </div>

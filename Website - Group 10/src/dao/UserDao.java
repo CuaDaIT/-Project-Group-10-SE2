@@ -27,6 +27,7 @@ public class UserDao {
 		if (connectToUser.getResponseCode() != 200) {
 		    throw new RuntimeException("Failed : HTTP error code : "
 		            + connectToUser.getResponseCode());
+		
 		}
 		String output = convertToString(in);
 		JSONArray allUser = new JSONArray(output);
@@ -92,6 +93,7 @@ public class UserDao {
 			user.setiD(iD);
 			userList.add(user);
 		}
+	
 		return userList;
 	}
 	public void updateUser(int iD,String username, String password, String email, int age, String dob) throws SQLException, IOException {

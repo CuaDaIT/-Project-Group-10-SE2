@@ -14,29 +14,29 @@
 			<div class="card-body">
 				<form action="update" method="post">
 					<h3 class="text-center">UPDATE VIET NAM STATISTIC</h3>
-					<input type="hidden" name="id" value="<c:out value='${each-day.id}' />" >
+					<input type="hidden" name="id"  value='${eachDay.ID}'  >
 
 					<fieldset class="form-group">
 						<label>Date</label> <input type="text"
-							value="<c:out value='${each-day.name}' />" class="form-control"
+							 value='${eachDay.date}'  class="form-control"
 							name="name" required="required">
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>Cases</label> <input type="text"
-							value="<c:out value='${each-day.cases}' />" class="form-control"
+							 value='${eachDay.cases}'  class="form-control"
 							name="address">
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label>Recovered</label> <input type="text"
-							value="<c:out value='${each-day.recovered}' />" class="form-control"
+							 value='${eachDay.recovered}'  class="form-control"
 							name="mobile">
 					</fieldset>
 					
 					<fieldset class="form-group">
 						<label>Deaths</label> <input type="text"
-							value="<c:out value='${each-day.deaths}' />" class="form-control"
+							 value='${eachDay.deaths}'  class="form-control"
 							name="mobile">
 					</fieldset>
 					

@@ -82,7 +82,7 @@ body {
         <a href="<%=request.getContextPath()%>/vietnamprovince" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces</a>
         
        
-        <a href="#" class="list-group-item list-group-item-action bg-light">Log out</a>
+        <a href="<%=request.getContextPath()%>" class="list-group-item list-group-item-action bg-light">Log out</a>
       </div>
     </div>
    

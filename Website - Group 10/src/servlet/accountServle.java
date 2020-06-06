@@ -1,6 +1,10 @@
 package servlet;
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -109,7 +113,13 @@ public class accountServle extends HttpServlet {
 			throws SQLException, IOException {
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String password = null;
+		try {
+			password = toHexString(request.getParameter("password"));
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		int age = Integer.parseInt(request.getParameter("age"));
 		String dob = request.getParameter("dob");
 		userDao.createUser(username, email, password, age, dob);
@@ -121,7 +131,13 @@ public class accountServle extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String password = null;
+		try {
+			password = toHexString(request.getParameter("password"));
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		int age = Integer.parseInt(request.getParameter("age"));
 		String dob = request.getParameter("dob");
 		userDao.updateUser(id,username, email, password, age, dob);
@@ -135,4 +151,27 @@ public class accountServle extends HttpServlet {
 		response.sendRedirect("manageaccount");
 
 	}
+	
+	/**
+    *
+    * @param s
+    * @effects
+    * @return hash-265 pass
+    * @throws NoSuchAlgorithmException
+    */
+   private String toHexString(String s) throws NoSuchAlgorithmException {
+       // Static getInstance method is called with hashing SHA
+       MessageDigest md = MessageDigest.getInstance("SHA-256");
+       byte[] hash = md.digest(s.getBytes(StandardCharsets.UTF_8));
+       // Convert byte array into signum representation
+       BigInteger number = new BigInteger(1, hash);
+       // Convert message digest into hex value
+       StringBuilder hexString = new StringBuilder(number.toString(16));
+       // Pad with leading zeros
+       while (hexString.length() < 32)
+       {
+           hexString.insert(0, '0');
+       }
+       return hexString.toString();
+   }
 }

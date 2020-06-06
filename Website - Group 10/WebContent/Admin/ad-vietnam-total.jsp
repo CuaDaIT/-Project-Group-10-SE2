@@ -20,6 +20,7 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>Date</th>
 						<th>Cases</th>
 						<th>Recovered Patient</th>
@@ -38,9 +39,7 @@
 							<td><c:out value="${EachDay.cases}" /></td>
 							<td><c:out value="${EachDay.recovered}" /></td>
 							<td><c:out value="${EachDay.deaths}" /></td>
-							<td><a href="/Group4_Assignment_SE2_Corona_site/worldstatistic/edit?id=<c:out value='${EachDay.ID}' />">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; 
-								<a href="/Group4_Assignment_SE2_Corona_site/worldstatistic/delete?id=<c:out value='${EachDay.ID}' />">Delete</a>
+							<td><a href="/Group4_Assignment_SE2_Corona_site/vietnam/edit?ID=<c:out value='${EachDay.ID}' />">Edit</a>
 							</td>	
 					</c:forEach>
 				</tbody>

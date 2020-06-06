@@ -21,12 +21,12 @@
   <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4 col-centered">
   <div class="jumbotron">
         <h3>Please login</h3>
-        <form action="Dashboard.jsp">
+        <form action="check" method="post">
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Enter Username">
+            <input type="text" name="username" class="form-control" placeholder="Enter Username">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="Enter password">
+            <input type="password" name="pass" class="form-control" placeholder="Enter password">
           </div>
           <div class="custom-checkbox">
             <label><input type="checkbox"> Remember me</label>
