@@ -73,7 +73,7 @@ public class VietNamProvinceDao {
 }
 	public void insertAProvince(String name, double confirmed, double underTreatment, double recovered, double deaths) throws  IOException {
 		HttpURLConnection connectToPtovince = DbConnect.getConnectionProvince("?"
-				+ "name="+name
+				+ "name="+spaceToPlus(name)
 				+"&confirmed="+confirmed
 				+"&undertreatment="+underTreatment
 				+"&recovered="+recovered
@@ -87,7 +87,7 @@ public class VietNamProvinceDao {
 	}
 	public void updateAProvince(String name, double confirmed, double underTreatment, double recovered, double deaths) throws  IOException {
 		HttpURLConnection connectToPtovince = DbConnect.getConnectionProvince("?"
-				+ "name="+name
+				+ "name="+spaceToPlus(name)
 				+"&confirmed="+confirmed
 				+"&undertreatment="+underTreatment
 				+"&recovered="+recovered
@@ -131,4 +131,12 @@ public class VietNamProvinceDao {
       return sb.toString();
    }
 
+	private static String spaceToPlus(String s) {
+		String result = "";
+		if(s.contains(" ")) {
+			result = s.replace(" ", "+");
+			return result;
+		}
+		return s;
+	}
 }

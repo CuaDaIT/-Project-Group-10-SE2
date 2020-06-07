@@ -122,7 +122,7 @@ public class CountryDao {
 	public void updateSpecificCountry(String country, double newConfirmed, double totalConfirmed, double newDeaths, double totalDeaths,
 			double newRecovered, double totalRecovered, String date,String countryCode) throws SQLException, IOException {
 		HttpURLConnection connectToCountry = DbConnect.getConnectionCountry("?"
-				+ "country="+country
+				+ "country="+spaceToPlus(country)
 				+"&newconfirmed="+newConfirmed
 				+"&totalconfirmed="+totalConfirmed
 				+"&newdeaths="+newDeaths
@@ -141,8 +141,9 @@ public class CountryDao {
 
 	public void insertACountry(String country, double newConfirmed, double totalConfirmed, double newDeaths, double totalDeaths,
 			double newRecovered, double totalRecovered, String date,String countryCode) throws SQLException, IOException {
+		System.out.println(spaceToPlus(country));
 		HttpURLConnection insertACountry = DbConnect.getConnectionCountry("?"
-				+ "country="+country
+				+ "country="+spaceToPlus(country)
 				+"&newconfirmed="+newConfirmed
 				+"&totalconfirmed="+totalConfirmed
 				+"&newdeaths="+newDeaths
@@ -179,4 +180,13 @@ public class CountryDao {
         
       return sb.toString();
    }
+	
+	private static String spaceToPlus(String s) {
+		String result = "";
+		if(s.contains(" ")) {
+			result = s.replace(" ", "+");
+			return result;
+		}
+		return s;
+	}
 }

@@ -179,14 +179,15 @@ public class VietNamProvinceDao {
 				+ ",recovered=?"
 				+ ",deaths=?"
 				+ ",date=?"
-				+ " where ID=?";
+				+ " where name=?";
+		System.out.println(updateValue);
 		PreparedStatement preparedStatement1 = conn.prepareStatement(updateValue);
 		 preparedStatement1.setDouble(1, vnD.getConfirmed());
 		 preparedStatement1.setDouble(2, vnD.getUnderTreatment());
 		 preparedStatement1.setDouble(3, vnD.getRecovered());
 		 preparedStatement1.setDouble(4, vnD.getDeaths());
 		 preparedStatement1.setString(5, date);
-		 preparedStatement1.setInt(6, vnD.getiD());
+		 preparedStatement1.setString(6, vnD.getName());
 		 preparedStatement1.execute();
 	}
 	public void deleteAprovince(int ID ) throws SQLException {

@@ -78,8 +78,8 @@ body {
       <div class="list-group list-group-flush">
         <a href="<%=request.getContextPath()%>/country" class="list-group-item list-group-item-action bg-light">Homepage</a>
         <a href="<%=request.getContextPath()%>/worldstatistic" class="list-group-item list-group-item-action bg-light">World Statistic</a>
-        <a href="<%=request.getContextPath()%>/vietnam" class="list-group-item list-group-item-action bg-light">Vietnam Statistic</a>
-        <a href="<%=request.getContextPath()%>/vietnamprovince" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces</a>
+        <a href="<%=request.getContextPath()%>/vietnam" class="list-group-item list-group-item-action bg-light">Each Day in Vietnam</a>
+        <a href="<%=request.getContextPath()%>/vietnamprovince" class="list-group-item list-group-item-action bg-light">Vietnam's Provinces Statistic</a>
         
        
         <a href="<%=request.getContextPath()%>" class="list-group-item list-group-item-action bg-light">Log out</a>

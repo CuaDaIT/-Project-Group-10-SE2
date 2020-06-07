@@ -23,7 +23,7 @@
 					</fieldset>
 
 					<fieldset class="form-group">
-						<label>Undertreatment</label> <input type="text"
+						<label>Confirmed Patient</label> <input type="text"
 							value='${VietNamProvinces.confirmed}'  class="form-control"
 							name="confirmed">
 					</fieldset>
